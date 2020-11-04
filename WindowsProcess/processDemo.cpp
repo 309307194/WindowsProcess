@@ -14,9 +14,20 @@ int main(int argc, char* argv[])
 	si.dwFlags = STARTF_USESHOWWINDOW;
 	si.wShowWindow = TRUE;
 	ZeroMemory(&pi, sizeof(pi));
-	WCHAR commandline[] = L"cmd";
-	
-	ret = CreateProcess(NULL, commandline, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi);
+	//WCHAR commandline[] = L"cmd";
+	//
+	//ret = CreateProcess(NULL, commandline, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi);
+
+	//WCHAR commandline[] = L"c:/windows/notepad.exe 1.txt";
+	//ret = CreateProcess(NULL, commandline, NULL, NULL, FALSE, NULL, NULL, NULL, &si, &pi);
+	/*WCHAR commandline[] = L"c:/windows/notepad.exe";
+	ret = CreateProcess(commandline, NULL, NULL, NULL, FALSE, NULL, NULL, NULL, &si, &pi);*/
+
+	WCHAR commandline1[] = L"c:/windows/notepad.exe";
+	WCHAR commandline2[] = L"calc";
+	ret = CreateProcess(commandline1, commandline2, NULL, NULL, FALSE, NULL, NULL, NULL, &si, &pi);
+
+
 	if (ret)
 	{
 		CloseHandle(pi.hThread);
